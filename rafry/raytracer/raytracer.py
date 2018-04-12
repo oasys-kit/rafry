@@ -140,11 +140,14 @@ class RaytracingManager(object):
 
 class Raytracer(AbstractRaytracer):
 
+    def __init__(self):
+        super().__init__()
+
     def do_raytracing(self, parameters=RaytracingParameters()):
         beam = parameters.get_beam()
 
         for element in parameters.get_RaytracingElements().get_raytracing_elements():
-            beam = element.get_optical_element().trace_optical_element(beam, parameters)
+            beam = element.get_optical_element().trace_optical_element(beam, element.get_coordinates())
 
         return beam
 

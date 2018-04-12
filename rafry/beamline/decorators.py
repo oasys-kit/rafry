@@ -1,4 +1,5 @@
 
+from syned.beamline.element_coordinates import ElementCoordinates
 from rafry.raytracer.beam import Beam
 
 class LightSourceDecorator():
@@ -13,7 +14,7 @@ class OpticalElementDecorator(object):
     def __init__(self):
         super().__init__()
 
-    def trace_optical_element(self, beam=Beam(), parameters=None):
+    def trace_optical_element(self, beam=Beam(), element_coordinates=ElementCoordinates()):
         raise NotImplementedError("This method should be specialized by specific implementors" +
                                   "\n\naccepts " + Beam.__module__ + "." + Beam.__name__ +
                                   "\nreturns " + Beam.__module__ + "." + Beam.__name__)
